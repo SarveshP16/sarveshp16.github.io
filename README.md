@@ -2,73 +2,75 @@
 
 My personal site, served by GitHub Pages at **https://sarveshp16.github.io**.
 
-A DevSecOps control-plane skin: terminal type, notched panels, a faint grid,
-a secure-delivery pipeline strip, and a status bar along the bottom.
+A security-engineering portfolio with a DevSecOps spine: boot sequence, an
+interactive network-topology background, a threat-console hero with a radar
+sweep, a scroll-driven secure-delivery pipeline, and a live status bar.
 
-Plain HTML, CSS and vanilla JavaScript — no build step, no dependencies. Push
-to `main` and GitHub publishes it.
+Plain HTML, CSS and JavaScript with no build step. GSAP and ScrollTrigger load
+from cdnjs for the scroll animation; push to `main` and GitHub publishes it.
 
 ```
-index.html          the whole page
-404.html            not-found page
-assets/css/style.css
-assets/js/main.js   theme toggle, cursor spotlight, scroll-spy nav,
-                    reveal animations, pipeline stages, status-bar clocks
-.nojekyll           serve the files as-is, skip Jekyll
+index.html             the whole page
+404.html               not-found page
+assets/css/style.css   design tokens and every component
+assets/js/main.js      boot clean-up, name scramble, role typing, nav,
+                       mobile menu, scroll reveals, pipeline and timeline
+                       progress, counters, card tilt, magnetic buttons, clocks
+assets/js/network.js   the background canvas
+assets/img/            put your photo and project screenshots here
+.nojekyll              serve the files as-is, skip Jekyll
 ```
 
 ## Running it locally
-
-Any static file server works. With Python installed:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8000. The boot overlay plays once per browser
+session; open a private window, or run `sessionStorage.clear()` in the console,
+to see it again.
 
 ## Editing the content
 
 Every spot that needs your words is marked with an `EDIT:` comment in
 `index.html`. In rough order of importance:
 
-1. **The `<title>` and `<meta name="description">`** — this is what Google and
-   link previews show.
-2. **Name, role and the one-line pitch** in `.session`.
-3. **Social links** — GitHub is already correct; LinkedIn and the email address
-   are placeholders (`your-handle`, `you@example.com`). The email appears twice:
-   in the sidebar and in the contact section.
-4. **Pipeline stages** — the `<li class="stage">` list. Make it the pipeline you
-   actually build; it's the first thing on the page.
-5. **About** — the terminal block. Three short paragraphs, each under its own
-   prompt line. Specifics beat adjectives.
-6. **Experience** — one `<li class="card">` per role, most recent first.
-7. **Projects** — one `<li class="card card--project">` each. The status badge
-   takes `badge--ok` (green), `badge--warn` (amber) or `badge--idle` (grey).
-8. **Stack** — keep the lists to things you'd happily be tested on.
-9. **Résumé** — put a PDF at `assets/resume.pdf`, or delete that link.
+1. **`<title>` and `<meta name="description">`** — what Google and link
+   previews show.
+2. **Hero** — availability chip, the roles that cycle in `data-typed` (keep the
+   `sr-only` sentence beside it in step), and the pitch.
+3. **Links** — GitHub is real; LinkedIn (`your-handle`) and email
+   (`you@example.com`) are placeholders. The email appears in the hero and the
+   contact section; LinkedIn in both of those too.
+4. **About** — the terminal block, plus the ID card: location, focus, and the
+   four stats. Use real numbers or delete the stats list. Swap the `SP` initials
+   for `<img src="assets/img/you.jpg" alt="Sarvesh Pandit">`.
+5. **Pipeline** — six stages. Make them the pipeline you actually build.
+6. **Experience** — one `<li class="timeline__item">` per role.
+7. **Projects** — one `<article class="project">` each. Status tag colour:
+   `tag--ok` green, `tag--info` cyan, `tag--warn` amber, `tag--crit` red.
+8. **Arsenal and Clearances** — tools you'd be happy to be tested on, and your
+   real certifications. Delete the Clearances block if you have none yet.
+9. **Résumé** — put a PDF at `assets/resume.pdf`, or remove the hero button.
 
-Finally, delete the `<li class="hud__item hud__item--draft">` element — it's the
-amber `PLACEHOLDER_COPY` chip in the status bar, there to stop you accidentally
-sharing the site while the copy is still filler.
+Finally, delete the `hud__item--draft` element — the amber `PLACEHOLDER COPY`
+chip in the status bar that stops you sharing the site while it's still filler.
 
 ## Design notes
 
-- **Colours** live in two blocks at the top of `assets/css/style.css`: `:root`
-  for dark, `[data-theme="light"]` for light. Change `--accent` in both and the
-  whole page follows. Dark is the real theme; light is the same structure with
-  the glow switched off. The site follows the visitor's system preference on
-  first visit and remembers a manual choice in `localStorage`.
-- **The cut corners** come from one `clip-path` rule shared by panels, pills and
-  buttons. Change `--notch` to adjust the bite, or set it to `0px` to square
-  everything off.
-- **The status bar is decorative chrome.** The clock and session timer are real;
-  the rest describes how the page is built and served, deliberately — no made-up
-  metrics on a page about security.
-- **The pipeline strip is a diagram, not a live run.** The stages light up in
-  sequence on load to show the shape of a secure delivery pipeline.
-- **Everything is JetBrains Mono.** If long paragraphs in mono bother you, give
-  `.term__body p` and `.card__text` a sans stack and the rest stays as is.
-- **Motion** respects `prefers-reduced-motion`: the scanline, the cursor glow,
-  the caret and the reveal animations all switch off, and the pipeline renders
-  complete.
+- **Type.** Space Grotesk for display, Inter for reading, JetBrains Mono for
+  labels and terminal output.
+- **Colour.** All tokens are at the top of `style.css`. `--green` is the signal
+  colour; `--grad` runs green → cyan → violet and drives the gradient text,
+  borders and progress bars.
+- **Motion that doesn't block content.** The boot overlay and hero entrance are
+  pure CSS keyed off classes set by a tiny inline script, so they start at first
+  paint instead of waiting for the CDN. GSAP only runs the scroll work. If it
+  fails to load, every section renders in its finished state.
+- **Honest chrome.** The radar console and status bar are decoration. The clock
+  and session timer are real; nothing else claims to be live data.
+- **Accessibility.** The scrambled name and the typed roles have stable
+  accessible names. The mobile menu manages focus and closes on Escape.
+  `prefers-reduced-motion` turns off the boot sequence, canvas animation,
+  scramble, typing, radar, marquee and every scroll effect.
