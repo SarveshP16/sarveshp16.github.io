@@ -1,0 +1,12 @@
+#!/bin/sh
+# Re-stamp asset URLs before every commit so a deploy can never pair new HTML
+# with stale cached CSS/JS. See scripts/stamp-assets.sh.
+
+sh scripts/stamp-assets.sh || exit 1
+
+# Stage the pages only if stamping actually changed them.
+for page in index.html 404.html; do
+  if ! git diff --quiet -- "$page"; then
+    git add -- "$page"
+  fi
+done

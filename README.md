@@ -18,6 +18,8 @@ assets/js/main.js      boot clean-up, name scramble, role typing, nav,
                        progress, counters, card tilt, magnetic buttons, clocks
 assets/js/network.js   the background canvas
 assets/img/            put your photo and project screenshots here
+scripts/stamp-assets.sh  version-stamps CSS/JS URLs (see Cache-busting)
+.githooks/pre-commit  runs the stamp script on every commit
 .nojekyll              serve the files as-is, skip Jekyll
 ```
 
@@ -30,6 +32,25 @@ python -m http.server 8000
 Then open http://localhost:8000. The boot overlay plays once per browser
 session; open a private window, or run `sessionStorage.clear()` in the console,
 to see it again.
+
+## Cache-busting (read this once)
+
+GitHub Pages caches every file for 10 minutes and doesn't let you change that.
+Without care, a returning visitor can get a fresh `index.html` with a stale
+`style.css` or `main.js` from the previous deploy, and the page breaks.
+
+So every local CSS and JS reference carries a content hash —
+`assets/css/style.css?v=f3163b0b` — and a changed file gets a new URL that no
+browser has cached. `scripts/stamp-assets.sh` writes those hashes, and the
+pre-commit hook in `.githooks/` runs it on every commit, so you never have to
+think about it. After cloning the repo fresh, switch the hook on once:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+If you ever edit and push without the hook, run `sh scripts/stamp-assets.sh`
+before committing.
 
 ## Editing the content
 

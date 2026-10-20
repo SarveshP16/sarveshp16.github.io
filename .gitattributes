@@ -1,0 +1,4 @@
+# Shell scripts and git hooks must keep LF endings, or "#!/bin/sh" picks up a
+# stray carriage return on Windows checkouts and the hook fails to run.
+*.sh        text eol=lf
+.githooks/* text eol=lf

@@ -10,6 +10,18 @@
 
   var ctx = canvas.getContext("2d");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Pin the canvas to the viewport here as well as in CSS. Its pixel buffer is
+  // viewport-size × devicePixelRatio, so if the stylesheet ever fails to load
+  // (or a stale cached one is used) an unstyled canvas would otherwise sit in
+  // the page flow at that full size and push all content off-screen.
+  var s = canvas.style;
+  s.position = "fixed";
+  s.top = "0";
+  s.left = "0";
+  s.width = "100%";
+  s.height = "100%";
+  s.pointerEvents = "none";
   var finePointer = window.matchMedia("(pointer: fine)").matches;
 
   var LINK = 140;        // max distance for node-to-node links

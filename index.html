@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=f3163b0b">
 
 <script>
   // Runs before first paint, so the intro starts without waiting on any
@@ -46,7 +46,7 @@
 <body>
 
 <!-- Icon sprite. Each <symbol> is referenced with <use href="#i-…">. -->
-<svg class="sprite" aria-hidden="true" focusable="false">
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute">
   <defs>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 20 6v5.5c0 4.7-3.2 8.6-8 10-4.8-1.4-8-5.3-8-10V6l8-3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m7 9.5 3 2.5-3 2.5M12.5 15h4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -72,7 +72,7 @@
 
 <!-- Intro overlay. Only shown when JS is on, motion is allowed, and it
      hasn't already played this browser session. -->
-<div class="boot" aria-hidden="true">
+<div class="boot" aria-hidden="true" hidden>
   <div class="boot__inner">
     <p class="boot__label"><span class="boot__dot"></span>establishing secure channel</p>
     <div class="boot__bar"><span></span></div>
@@ -94,7 +94,7 @@
 <header class="nav" data-nav>
   <div class="nav__inner container">
     <a class="brand" href="#top" aria-label="Sarvesh Pandit, back to top">
-      <svg class="brand__mark"><use href="#i-shield"/></svg>
+      <svg class="brand__mark" width="26" height="26"><use href="#i-shield"/></svg>
       <span class="brand__text">sarvesh<span>.sec</span></span>
     </a>
 
@@ -160,20 +160,20 @@
         <div class="hero__actions" data-hero-item>
           <a class="btn btn--primary" href="#projects" data-magnetic>
             View operations
-            <svg class="icon"><use href="#i-right"/></svg>
+            <svg class="icon" width="18" height="18"><use href="#i-right"/></svg>
           </a>
           <!-- EDIT: put your CV at assets/resume.pdf, or remove this button -->
           <a class="btn btn--ghost" href="assets/resume.pdf" data-magnetic>
-            <svg class="icon"><use href="#i-download"/></svg>
+            <svg class="icon" width="18" height="18"><use href="#i-download"/></svg>
             Résumé
           </a>
         </div>
 
         <ul class="hero__socials" data-hero-item>
           <!-- EDIT: real profile URLs -->
-          <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
-          <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
-          <li><a href="mailto:you@example.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+          <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener" aria-label="GitHub"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="mailto:you@example.com" aria-label="Email"><svg class="icon" width="18" height="18"><use href="#i-mail"/></svg></a></li>
         </ul>
       </div>
 
@@ -194,7 +194,7 @@
             <span class="radar__blip" style="--x: 28%; --y: 34%;"></span>
             <span class="radar__blip radar__blip--warn" style="--x: 68%; --y: 58%;"></span>
             <span class="radar__blip" style="--x: 52%; --y: 22%;"></span>
-            <svg class="radar__shield"><use href="#i-shield"/></svg>
+            <svg class="radar__shield" width="34" height="34"><use href="#i-shield"/></svg>
           </div>
         </div>
 
@@ -214,7 +214,7 @@
 
     <a class="hero__scroll" href="#about" aria-label="Scroll to about">
       <span>scroll</span>
-      <svg class="icon"><use href="#i-down"/></svg>
+      <svg class="icon" width="18" height="18"><use href="#i-down"/></svg>
     </a>
   </section>
 
@@ -269,9 +269,9 @@
           </div>
 
           <dl class="id-card__meta">
-            <div><dt><svg class="icon"><use href="#i-pin"/></svg>Location</dt><dd>Your City, Country</dd></div>
-            <div><dt><svg class="icon"><use href="#i-shield"/></svg>Focus</dt><dd>Pipeline &amp; cloud security</dd></div>
-            <div><dt><svg class="icon"><use href="#i-terminal"/></svg>Shell</dt><dd>zsh · bash</dd></div>
+            <div><dt><svg class="icon" width="18" height="18"><use href="#i-pin"/></svg>Location</dt><dd>Your City, Country</dd></div>
+            <div><dt><svg class="icon" width="18" height="18"><use href="#i-shield"/></svg>Focus</dt><dd>Pipeline &amp; cloud security</dd></div>
+            <div><dt><svg class="icon" width="18" height="18"><use href="#i-terminal"/></svg>Shell</dt><dd>zsh · bash</dd></div>
           </dl>
 
           <ul class="stats">
@@ -298,32 +298,32 @@
       <!-- EDIT: make these the stages you actually build -->
       <ol class="pipeline" data-pipeline>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-git"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-git"/></svg></span>
           <h3>Commit</h3>
           <p>Signed commits, secret scanning on push, pre-commit hooks.</p>
         </li>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-bug"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-bug"/></svg></span>
           <h3>SAST</h3>
           <p>Semgrep and CodeQL on every PR, tuned until the noise is gone.</p>
         </li>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-scan"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-scan"/></svg></span>
           <h3>SCA &amp; SBOM</h3>
           <p>Dependency audit, licence checks, an SBOM for every build.</p>
         </li>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-box"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-box"/></svg></span>
           <h3>Image scan</h3>
           <p>Trivy gates on critical CVEs. Distroless bases by default.</p>
         </li>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-lock"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-lock"/></svg></span>
           <h3>Policy</h3>
           <p>OPA checks IaC and manifests before anything is applied.</p>
         </li>
         <li class="stage">
-          <span class="stage__node"><svg class="icon"><use href="#i-key"/></svg></span>
+          <span class="stage__node"><svg class="icon" width="18" height="18"><use href="#i-key"/></svg></span>
           <h3>Sign &amp; deploy</h3>
           <p>Cosign signatures, admission control rejects anything unsigned.</p>
         </li>
@@ -399,7 +399,7 @@
         <article class="project project--feature" data-reveal data-tilt>
           <div class="project__glow" aria-hidden="true"></div>
           <div class="project__top">
-            <span class="project__icon"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-shield"/></svg></span>
             <span class="tag tag--ok">operational</span>
           </div>
           <h3 class="project__title">Project One</h3>
@@ -408,15 +408,15 @@
             <li>Go</li><li>Kubernetes</li><li>Falco</li><li>eBPF</li>
           </ul>
           <div class="project__links">
-            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon"><use href="#i-arrow"/></svg></a>
-            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Write-up <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Write-up <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
 
         <article class="project" data-reveal data-tilt>
           <div class="project__glow" aria-hidden="true"></div>
           <div class="project__top">
-            <span class="project__icon"><svg class="icon"><use href="#i-scan"/></svg></span>
+            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-scan"/></svg></span>
             <span class="tag tag--info">hardened</span>
           </div>
           <h3 class="project__title">Project Two</h3>
@@ -425,14 +425,14 @@
             <li>Python</li><li>Semgrep</li><li>GitHub Actions</li>
           </ul>
           <div class="project__links">
-            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
 
         <article class="project" data-reveal data-tilt>
           <div class="project__glow" aria-hidden="true"></div>
           <div class="project__top">
-            <span class="project__icon"><svg class="icon"><use href="#i-flag"/></svg></span>
+            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-flag"/></svg></span>
             <span class="tag tag--warn">ctf</span>
           </div>
           <h3 class="project__title">Project Three</h3>
@@ -441,14 +441,14 @@
             <li>Burp Suite</li><li>Wireshark</li><li>Bash</li>
           </ul>
           <div class="project__links">
-            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Write-up <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Write-up <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
 
         <article class="project" data-reveal data-tilt>
           <div class="project__glow" aria-hidden="true"></div>
           <div class="project__top">
-            <span class="project__icon"><svg class="icon"><use href="#i-cloud"/></svg></span>
+            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-cloud"/></svg></span>
             <span class="tag tag--ok">operational</span>
           </div>
           <h3 class="project__title">Project Four</h3>
@@ -457,13 +457,13 @@
             <li>Terraform</li><li>AWS</li><li>OPA</li>
           </ul>
           <div class="project__links">
-            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/SarveshP16" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
       </div>
 
       <p class="more" data-reveal>
-        <a href="https://github.com/SarveshP16?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="https://github.com/SarveshP16?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </p>
     </div>
   </section>
@@ -481,7 +481,7 @@
         <!-- EDIT: keep these honest -->
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-shield"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-shield"/></svg></span>
             <h3>Application security</h3>
           </div>
           <ul class="chips chips--lg">
@@ -491,7 +491,7 @@
 
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-box"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-box"/></svg></span>
             <h3>Supply chain &amp; containers</h3>
           </div>
           <ul class="chips chips--lg">
@@ -501,7 +501,7 @@
 
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-cloud"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-cloud"/></svg></span>
             <h3>Cloud &amp; infrastructure</h3>
           </div>
           <ul class="chips chips--lg">
@@ -511,7 +511,7 @@
 
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-git"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-git"/></svg></span>
             <h3>CI / CD</h3>
           </div>
           <ul class="chips chips--lg">
@@ -521,7 +521,7 @@
 
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-scan"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-scan"/></svg></span>
             <h3>Network &amp; offensive</h3>
           </div>
           <ul class="chips chips--lg">
@@ -531,7 +531,7 @@
 
         <div class="arsenal__group" data-reveal>
           <div class="arsenal__head">
-            <span class="arsenal__icon"><svg class="icon"><use href="#i-terminal"/></svg></span>
+            <span class="arsenal__icon"><svg class="icon" width="18" height="18"><use href="#i-terminal"/></svg></span>
             <h3>Languages</h3>
           </div>
           <ul class="chips chips--lg">
@@ -541,11 +541,11 @@
       </div>
 
       <!-- Certifications -->
-      <h3 class="subhead" data-reveal><svg class="icon"><use href="#i-award"/></svg>Clearances</h3>
+      <h3 class="subhead" data-reveal><svg class="icon" width="18" height="18"><use href="#i-award"/></svg>Clearances</h3>
       <ul class="certs">
         <!-- EDIT: your real certifications; delete the block if none yet -->
         <li class="cert" data-reveal>
-          <span class="cert__badge"><svg class="icon"><use href="#i-award"/></svg></span>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-award"/></svg></span>
           <div>
             <p class="cert__name">Certification Name</p>
             <p class="cert__meta">Issuer · 2025</p>
@@ -553,7 +553,7 @@
           <span class="tag tag--ok">verified</span>
         </li>
         <li class="cert" data-reveal>
-          <span class="cert__badge"><svg class="icon"><use href="#i-award"/></svg></span>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-award"/></svg></span>
           <div>
             <p class="cert__name">Certification Name</p>
             <p class="cert__meta">Issuer · 2024</p>
@@ -561,7 +561,7 @@
           <span class="tag tag--ok">verified</span>
         </li>
         <li class="cert" data-reveal>
-          <span class="cert__badge"><svg class="icon"><use href="#i-flag"/></svg></span>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-flag"/></svg></span>
           <div>
             <p class="cert__name">CTF / Competition</p>
             <p class="cert__meta">Placement · 2024</p>
@@ -584,14 +584,14 @@
         <div class="contact__actions">
           <!-- EDIT: your real address -->
           <a class="btn btn--primary btn--lg" href="mailto:you@example.com" data-magnetic>
-            <svg class="icon"><use href="#i-mail"/></svg>
+            <svg class="icon" width="18" height="18"><use href="#i-mail"/></svg>
             you@example.com
           </a>
         </div>
 
         <ul class="contact__links">
-          <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener"><svg class="icon"><use href="#i-github"/></svg>SarveshP16</a></li>
-          <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="me noopener"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+          <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg>SarveshP16</a></li>
+          <li><a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
         </ul>
       </div>
     </div>
@@ -631,7 +631,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="assets/js/network.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/network.js?v=2ddd3273" defer></script>
+<script src="assets/js/main.js?v=6756e8f2" defer></script>
 </body>
 </html>
