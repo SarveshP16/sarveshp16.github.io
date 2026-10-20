@@ -1201,6 +1201,14 @@ main, .footer { position: relative; z-index: 1; }
   white-space: nowrap;
 }
 
+/* A secondary line under the head, e.g. an earlier stint at the same place. */
+.timeline__note {
+  margin: -0.65rem 0 1.1rem;
+  color: var(--text-3);
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+}
+
 .timeline__points {
   display: grid;
   gap: 0.6rem;
@@ -1307,6 +1315,58 @@ main, .footer { position: relative; z-index: 1; }
 .project:hover .project__title { color: var(--green); }
 
 .project__text { flex: 1; margin-bottom: 1.4rem; font-size: 0.9375rem; }
+.project__text code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 5px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--f-mono);
+  font-size: 0.85em;
+}
+
+/* Side quests: compact one-line project links under the main grid. */
+.quests {
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 820px) { .quests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Name stacked over its description, arrow on the right spanning both, so
+   rows line up however long each project's name is. */
+.quest {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.2rem 1rem;
+  height: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.quest:hover { border-color: rgba(0, 240, 168, 0.35); transform: translateY(-2px); }
+
+.quest__name {
+  grid-column: 1;
+  color: var(--text);
+  font-family: var(--f-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.quest__text {
+  grid-column: 1;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.quest .icon {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--text-3);
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.quest:hover .icon { color: var(--green); transform: translate(2px, -2px); }
 
 .project .chips { margin-bottom: 1.5rem; }
 
@@ -1402,6 +1462,11 @@ main, .footer { position: relative; z-index: 1; }
 .cert > div { flex: 1; min-width: 0; }
 .cert__name { margin: 0; color: var(--text); font-weight: 600; font-size: 0.9375rem; line-height: 1.4; }
 .cert__meta { margin: 0.15rem 0 0; color: var(--text-3); font-family: var(--f-mono); font-size: 0.75rem; }
+
+/* Two degrees read better as a pair than as a part-filled row of three. */
+@media (min-width: 760px) {
+  .certs--edu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 /* ------------------------------------------- 11. Contact, footer, HUD */
 

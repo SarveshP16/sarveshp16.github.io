@@ -7,8 +7,8 @@
 <h1>Sarvesh Pandit</h1>
 
 <p>
-  <b>Security Engineer · DevSecOps</b><br>
-  Hardening the path from commit to production.
+  <b>DevSecOps · Cybersecurity · Sydney</b><br>
+  Building and securing software end to end.
 </p>
 
 <p>
@@ -50,5 +50,5 @@ git config core.hooksPath .githooks
 <br>
 
 <div align="center">
-  <sub>© 2026 Sarvesh Pandit · <a href="https://sarveshp16.github.io/#contact">Get in touch</a></sub>
+  <sub>© 2026 Sarvesh Pandit · <a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/">LinkedIn</a> · <a href="mailto:redacted@example.invalid">Email</a></sub>
 </div>
