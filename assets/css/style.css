@@ -1526,7 +1526,97 @@ main, .footer { position: relative; z-index: 1; }
   font-size: 1.0625rem;
 }
 
-.contact__actions { margin-top: 2.25rem; }
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+/* Flex items shrink to their narrowest wrap point, which split button
+   labels across two lines inside the fixed button height. */
+.contact__actions .btn { white-space: nowrap; }
+
+@media (max-width: 520px) {
+  .contact__actions .btn { width: 100%; }
+}
+
+/* With the form live, it becomes the main call to action and the LinkedIn
+   button steps down to a secondary style. */
+.has-form .contact__actions .btn--primary {
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  box-shadow: none;
+}
+.has-form .contact__actions .btn--primary::after { display: none; }
+.has-form .contact__actions .btn--primary:hover { border-color: rgba(0, 240, 168, 0.55); color: var(--green); }
+
+/* ------------------------------------------------------------ contact form */
+
+.contact__form {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  margin: 2.25rem auto 0;
+  text-align: left;
+}
+/* An author display rule beats the browser's own [hidden] style, so the
+   unconfigured form needs this to stay hidden. */
+.contact__form[hidden] { display: none; }
+
+@media (min-width: 600px) {
+  .contact__form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field--full,
+  .contact__form-foot { grid-column: 1 / -1; }
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--text-2);
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 8rem; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-3); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(0, 240, 168, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 240, 168, 0.15);
+}
+.field.is-invalid input,
+.field.is-invalid textarea { border-color: var(--red); }
+
+.contact__form-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+.contact__status { flex: 1; min-width: 12rem; margin: 0; color: var(--text-2); font-size: 0.875rem; }
+.contact__status.is-ok { color: var(--green); }
+.contact__status.is-error { color: var(--red); }
+.contact__form .btn[disabled] { opacity: 0.6; cursor: progress; }
 
 .contact__links {
   display: flex;

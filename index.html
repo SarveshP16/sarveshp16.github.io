@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=add45d8b">
+<link rel="stylesheet" href="assets/css/style.css?v=dba6d16e">
 
 <script>
   // Runs before first paint, so the intro starts without waiting on any
@@ -69,6 +69,9 @@
     <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2.5 12h4l2.5-6.5 4.5 13 2.5-6.5h5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20.5h16M6.5 17v-5M11 17V7.5M15.5 17v-7M20 17V4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 4 2.5 9 12 14l9.5-5L12 4Z M6 11v4.5c0 1.5 2.7 3 6 3s6-1.5 6-3V11M21.5 9v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
@@ -163,17 +166,19 @@
             View operations
             <svg class="icon" width="18" height="18"><use href="#i-right"/></svg>
           </a>
-          <!-- To offer a CV download instead: add assets/resume.pdf, point
-               this href at it, and swap the icon to #i-download. -->
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" data-magnetic>
-            <svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg>
-            LinkedIn
+          <!-- Rebuilt from resume/index.html; see the note at the top of it. -->
+          <a class="btn btn--ghost" href="assets/Sarvesh-Pandit-Resume.pdf" download data-magnetic>
+            <svg class="icon" width="18" height="18"><use href="#i-download"/></svg>
+            Résumé
           </a>
         </div>
 
         <ul class="hero__socials" data-hero-item>
           <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener" aria-label="GitHub"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg></a></li>
-          <li><a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg></a></li>        </ul>
+          <li><a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="https://www.instagram.com/sarvesh.pandit_/" target="_blank" rel="me noopener" aria-label="Instagram"><svg class="icon" width="18" height="18"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@CrYsTAxiT" target="_blank" rel="me noopener" aria-label="YouTube"><svg class="icon" width="18" height="18"><use href="#i-youtube"/></svg></a></li>
+        </ul>
       </div>
 
       <!-- Threat-console card: a stylised readout, not live data. -->
@@ -477,6 +482,7 @@
           <div class="project__links">
             <a href="https://github.com/SarveshP16/Multi-Disease-Detection-Prediction-Based-on-Machine-Learning" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
             <a href="https://www.ijirset.com/upload/2020/april/119_DEEP_NC.PDF" target="_blank" rel="noopener">Paper <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
+            <a href="https://youtu.be/BtautVuUPO4" target="_blank" rel="noopener">Demo video <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
 
@@ -738,17 +744,55 @@
         <div class="contact__grid" aria-hidden="true"></div>
         <p class="eyebrow"><span>06</span> // secure channel</p>
         <h2 class="contact__title">Let's make your pipeline <span class="grad">boring</span>.</h2>
-        <p class="contact__lede">Happy to talk DevSecOps, security operations, automation, or whatever you're building. LinkedIn is the best way to reach me.</p>
+        <p class="contact__lede">Happy to talk DevSecOps, security operations, automation, or whatever you're building.</p>
+
+        <!-- Contact form, sent through Web3Forms so the destination address
+             lives in their backend and never appears in this page. Paste the
+             access key from web3forms.com into data-access-key to switch it
+             on; while it's empty, main.js keeps the form hidden. -->
+        <form class="contact__form" data-contact-form data-access-key="" novalidate hidden>
+          <input type="hidden" name="subject" value="New message from sarveshp16.github.io">
+          <input type="hidden" name="from_name" value="Portfolio contact form">
+          <!-- Honeypot: real visitors never see or tick this. -->
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Your email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="ada@example.com" required>
+          </div>
+          <div class="field field--full">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="What are you working on?" required></textarea>
+          </div>
+
+          <div class="contact__form-foot">
+            <p class="contact__status" role="status" aria-live="polite"></p>
+            <button class="btn btn--primary" type="submit">
+              <svg class="icon" width="18" height="18"><use href="#i-send"/></svg>
+              <span>Send message</span>
+            </button>
+          </div>
+        </form>
 
         <div class="contact__actions">
           <a class="btn btn--primary btn--lg" href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" data-magnetic>
             <svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg>
             Message me on LinkedIn
           </a>
+          <a class="btn btn--ghost btn--lg" href="assets/Sarvesh-Pandit-Resume.pdf" download data-magnetic>
+            <svg class="icon" width="18" height="18"><use href="#i-download"/></svg>
+            Résumé
+          </a>
         </div>
 
         <ul class="contact__links">
           <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg>SarveshP16</a></li>
+          <li><a href="https://www.instagram.com/sarvesh.pandit_/" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-instagram"/></svg>sarvesh.pandit_</a></li>
+          <li><a href="https://www.youtube.com/@CrYsTAxiT" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-youtube"/></svg>@CrYsTAxiT</a></li>
         </ul>
       </div>
     </div>
@@ -789,7 +833,9 @@
   "knowsAbout": ["DevSecOps", "Cybersecurity", "Incident response", "Vulnerability management", "CI/CD", "Kubernetes"],
   "sameAs": [
     "https://github.com/SarveshP16",
-    "https://www.linkedin.com/in/sarvesh-pandit-0340a9202/"
+    "https://www.linkedin.com/in/sarvesh-pandit-0340a9202/",
+    "https://www.instagram.com/sarvesh.pandit_/",
+    "https://www.youtube.com/@CrYsTAxiT"
   ]
 }
 </script>
@@ -797,6 +843,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="assets/js/network.js?v=2ddd3273" defer></script>
-<script src="assets/js/main.js?v=6756e8f2" defer></script>
+<script src="assets/js/main.js?v=be83d5ce" defer></script>
 </body>
 </html>
