@@ -1,4 +1,5 @@
-/* Theme toggle, cursor spotlight, scroll-linked nav, reveal-on-scroll. */
+/* Theme toggle, cursor spotlight, scroll-linked nav, reveal-on-scroll,
+   the pipeline stage animation, and the status-bar clocks. */
 
 (function () {
   "use strict";
@@ -13,8 +14,7 @@
   function syncToggleLabel() {
     if (!toggle) return;
     var isLight = root.getAttribute("data-theme") === "light";
-    toggle.querySelector(".theme-toggle__label").textContent =
-      isLight ? "Dark mode" : "Light mode";
+    toggle.querySelector(".theme-toggle__label").textContent = isLight ? "dark" : "light";
   }
 
   if (toggle) {
@@ -100,6 +100,65 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   updateActiveLink();
+
+  /* ----------------------------------------------------- status clocks */
+
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  var clockOut = document.querySelector("[data-clock]");
+  var sessionOut = document.querySelector("[data-session]");
+  var startedAt = Date.now();
+
+  function tick() {
+    if (clockOut) {
+      var now = new Date();
+      clockOut.textContent =
+        pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
+    }
+    if (sessionOut) {
+      var elapsed = Math.floor((Date.now() - startedAt) / 1000);
+      sessionOut.textContent =
+        pad(Math.floor(elapsed / 3600)) + ":" +
+        pad(Math.floor(elapsed / 60) % 60) + ":" +
+        pad(elapsed % 60);
+    }
+  }
+
+  if (clockOut || sessionOut) {
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* --------------------------------------------------- pipeline stages */
+
+  var pipeline = document.querySelector("[data-pipeline]");
+  var pipelineState = document.querySelector("[data-pipeline-state]");
+
+  function finishPipeline() {
+    if (!pipelineState) return;
+    pipelineState.textContent = "passed";
+    pipelineState.classList.add("is-passed");
+  }
+
+  if (pipeline) {
+    var stages = Array.prototype.slice.call(pipeline.querySelectorAll(".stage"));
+
+    if (prefersReduced) {
+      stages.forEach(function (stage) {
+        stage.classList.add("is-done");
+      });
+      finishPipeline();
+    } else {
+      stages.forEach(function (stage, index) {
+        setTimeout(function () {
+          stage.classList.add("is-done");
+          if (index === stages.length - 1) finishPipeline();
+        }, 350 + index * 180);
+      });
+    }
+  }
 
   /* ------------------------------------------------ reveal on scroll */
 
