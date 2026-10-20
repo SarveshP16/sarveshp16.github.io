@@ -50,5 +50,5 @@ git config core.hooksPath .githooks
 <br>
 
 <div align="center">
-  <sub>© 2026 Sarvesh Pandit · <a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/">LinkedIn</a> · <a href="mailto:redacted@example.invalid">Email</a></sub>
+  <sub>© 2026 Sarvesh Pandit · <a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/">LinkedIn</a></sub>
 </div>

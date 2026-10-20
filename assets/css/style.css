@@ -1239,6 +1239,9 @@ main, .footer { position: relative; z-index: 1; }
 
 @media (min-width: 820px) {
   .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* The featured card spans the full row, so an odd project count still
+     fills the grid. */
+  .project--feature { grid-column: 1 / -1; }
 }
 
 .project {
@@ -1464,6 +1467,12 @@ main, .footer { position: relative; z-index: 1; }
 .cert > div { flex: 1; min-width: 0; }
 .cert__name { margin: 0; color: var(--text); font-weight: 600; font-size: 0.9375rem; line-height: 1.4; }
 .cert__meta { margin: 0.15rem 0 0; color: var(--text-3); font-family: var(--f-mono); font-size: 0.75rem; }
+.cert__desc { margin: 0.4rem 0 0; color: var(--text-2); font-size: 0.8125rem; line-height: 1.5; }
+
+.cert__name a { display: inline-flex; align-items: center; gap: 0.3rem; }
+.cert__name a:hover { color: var(--green); }
+.cert__name .icon { width: 14px; height: 14px; transition: transform 0.25s var(--ease); }
+.cert__name a:hover .icon { transform: translate(2px, -2px); }
 /* ------------------------------------------- 11. Contact, footer, HUD */
 
 .contact { padding-bottom: clamp(5rem, 10vw, 7rem); }

@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=b76b95a2">
+<link rel="stylesheet" href="assets/css/style.css?v=add45d8b">
 
 <script>
   // Runs before first paint, so the intro starts without waiting on any
@@ -173,9 +173,7 @@
 
         <ul class="hero__socials" data-hero-item>
           <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener" aria-label="GitHub"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg></a></li>
-          <li><a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg></a></li>
-          <li><a href="mailto:redacted@example.invalid" aria-label="Email"><svg class="icon" width="18" height="18"><use href="#i-mail"/></svg></a></li>
-        </ul>
+          <li><a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg></a></li>        </ul>
       </div>
 
       <!-- Threat-console card: a stylised readout, not live data. -->
@@ -243,7 +241,7 @@
           </div>
           <div class="term__body">
             <p class="term__cmd"><span class="term__ps" aria-hidden="true">❯</span> whoami --verbose</p>
-            <p>I'm a DevSecOps and cybersecurity engineer in <strong>Sydney</strong>. At <strong>NextGen</strong> I run change control and releases for <strong>65+ customers</strong> across DEV, UAT and PROD. Alongside that I've worked the security side: SOC work and malware analysis at CyberXcel, vulnerability assessment and penetration testing at Heaps.ai, and red teaming at Bluefire Redteam.</p>
+            <p>I'm a DevSecOps and cybersecurity engineer in <strong>Sydney</strong>. At <strong>NextGen</strong> I run change control and releases for <strong>65+ customers</strong> across DEV, UAT and PROD. Alongside that I've worked the security side: SOC work and malware analysis at CyberXcel, and vulnerability assessment and penetration testing at HEAPS.ai.</p>
 
             <p class="term__cmd"><span class="term__ps" aria-hidden="true">❯</span> cat mission.txt</p>
             <p>I build and secure software end to end: CI/CD pipelines, containerised deployments, and the security testing that keeps them honest. Anything I'd otherwise do twice, I automate in Python or Bash.</p>
@@ -407,27 +405,6 @@
             </ul>
           </div>
         </li>
-
-        <li class="timeline__item" data-reveal>
-          <span class="timeline__node" aria-hidden="true"></span>
-          <div class="timeline__card">
-            <div class="timeline__head">
-              <div>
-                <h3>Penetration Tester Intern</h3>
-                <p class="timeline__org">Bluefire Redteam · Remote · Internship</p>
-              </div>
-              <span class="timeline__date">Jun 2020 — Aug 2020</span>
-            </div>
-            <ul class="timeline__points">
-              <li>Ran red teaming, vulnerability assessment and penetration testing (VAPT), and application security testing for multiple clients.</li>
-              <li>Found and helped fix security risks across several platforms.</li>
-              <li>Gave a talk and wrote a blog post on JavaScript recon.</li>
-            </ul>
-            <ul class="chips">
-              <li>Red teaming</li><li>VAPT</li><li>AppSec</li><li>Nessus</li>
-            </ul>
-          </div>
-        </li>
       </ol>
     </div>
   </section>
@@ -489,54 +466,57 @@
         <article class="project" data-reveal data-tilt>
           <div class="project__glow" aria-hidden="true"></div>
           <div class="project__top">
+            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-pulse"/></svg></span>
+            <span class="tag tag--ok">published</span>
+          </div>
+          <h3 class="project__title">Multi-Disease Detection</h3>
+          <p class="project__text">Machine learning models that diagnose lung cancer, skin disease and heart disease from a single interface. The research was published in IJIRSET in 2020.</p>
+          <ul class="chips">
+            <li>Python</li><li>Machine learning</li><li>NumPy</li>
+          </ul>
+          <div class="project__links">
+            <a href="https://github.com/SarveshP16/Multi-Disease-Detection-Prediction-Based-on-Machine-Learning" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
+            <a href="https://www.ijirset.com/upload/2020/april/119_DEEP_NC.PDF" target="_blank" rel="noopener">Paper <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+
+        <article class="project" data-reveal data-tilt>
+          <div class="project__glow" aria-hidden="true"></div>
+          <div class="project__top">
             <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-lock"/></svg></span>
-            <span class="tag tag--ok">self-hosted</span>
+            <span class="tag tag--info">blockchain</span>
           </div>
-          <h3 class="project__title">Wardro</h3>
-          <p class="project__text">An AI outfit generator and digital wardrobe in three Docker containers, reachable only over a private Tailscale network. The API key stays server-side and never reaches the browser.</p>
+          <h3 class="project__title">Blockchain in Healthcare Record Security</h3>
+          <p class="project__text">Enhanced the security of healthcare records by developing blockchain-based solutions, improving information security standards.</p>
           <ul class="chips">
-            <li>Next.js</li><li>Docker</li><li>Postgres</li><li>FastAPI</li><li>Tailscale</li>
+            <li>Blockchain</li><li>Cybersecurity</li>
           </ul>
-          <div class="project__links">
-            <a href="https://github.com/SarveshP16/Wardro-app" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="project" data-reveal data-tilt>
-          <div class="project__glow" aria-hidden="true"></div>
-          <div class="project__top">
-            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-pin"/></svg></span>
-            <span class="tag tag--info">android</span>
-          </div>
-          <h3 class="project__title">CarDash</h3>
-          <p class="project__text">Turns a spare Android phone into a car dashboard with navigation, music, a loop-recording dashcam and car on/off routines. A companion app pairs with a 6-digit code over the phone's hotspot.</p>
-          <ul class="chips">
-            <li>Kotlin</li><li>Jetpack Compose</li><li>Maps SDK</li>
-          </ul>
-          <div class="project__links">
-            <a href="https://github.com/SarveshP16/CarDash" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <article class="project" data-reveal data-tilt>
-          <div class="project__glow" aria-hidden="true"></div>
-          <div class="project__top">
-            <span class="project__icon"><svg class="icon" width="18" height="18"><use href="#i-chart"/></svg></span>
-            <span class="tag tag--info">cross-platform</span>
-          </div>
-          <h3 class="project__title">MoneyMap</h3>
-          <p class="project__text">A personal finance tracker for Windows, Android and the web from one codebase. It works offline, syncs through Supabase, and has private and shared ledgers for couples.</p>
-          <ul class="chips">
-            <li>React</li><li>TypeScript</li><li>Supabase</li><li>Capacitor</li><li>Electron</li>
-          </ul>
-          <div class="project__links">
-            <a href="https://github.com/SarveshP16/MoneyMap" target="_blank" rel="noopener">Source <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a>
-          </div>
         </article>
       </div>
 
       <h3 class="subhead" data-reveal><svg class="icon" width="18" height="18"><use href="#i-flag"/></svg>Side quests</h3>
       <ul class="quests">
+        <li data-reveal>
+          <a class="quest" href="https://github.com/SarveshP16/Wardro-app" target="_blank" rel="noopener">
+            <span class="quest__name">Wardro</span>
+            <span class="quest__text">A self-hosted AI wardrobe in Docker, reachable only over a private Tailscale network.</span>
+            <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="quest" href="https://github.com/SarveshP16/CarDash" target="_blank" rel="noopener">
+            <span class="quest__name">CarDash</span>
+            <span class="quest__text">Turns a spare Android phone into a car dashboard with navigation and a dashcam. Kotlin.</span>
+            <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="quest" href="https://github.com/SarveshP16/MoneyMap" target="_blank" rel="noopener">
+            <span class="quest__name">MoneyMap</span>
+            <span class="quest__text">An offline-first finance tracker for Windows, Android and the web. React and Supabase.</span>
+            <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg>
+          </a>
+        </li>
         <li data-reveal>
           <a class="quest" href="https://github.com/SarveshP16/Orbit" target="_blank" rel="noopener">
             <span class="quest__name">Orbit</span>
@@ -555,13 +535,6 @@
           <a class="quest" href="https://github.com/SarveshP16/Retro-Emulator-Script" target="_blank" rel="noopener">
             <span class="quest__name">Retro Emulator</span>
             <span class="quest__text">An ADB script that turns an old Android phone into a retro gaming handheld. Bash.</span>
-            <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg>
-          </a>
-        </li>
-        <li data-reveal>
-          <a class="quest" href="https://github.com/SarveshP16/Multi-Disease-Detection-Prediction-Based-on-Machine-Learning" target="_blank" rel="noopener">
-            <span class="quest__name">Multi-Disease Detection</span>
-            <span class="quest__text">Machine learning for lung cancer, skin and heart disease diagnosis. Published in IJIRSET, 2020.</span>
             <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg>
           </a>
         </li>
@@ -629,7 +602,7 @@
             <h3>Languages</h3>
           </div>
           <ul class="chips chips--lg">
-            <li>Python</li><li>Bash</li><li>PowerShell</li><li>KQL</li><li>SPL</li><li>C / C++</li><li>JavaScript</li>
+            <li>Python</li><li>Bash</li><li>PowerShell</li><li>KQL</li><li>SQL</li><li>JavaScript</li>
           </ul>
         </div>
 
@@ -643,6 +616,39 @@
           </ul>
         </div>
       </div>
+
+      <!-- Responsible-disclosure acknowledgements, newest first. The tag
+           names the vulnerability class. -->
+      <h3 class="subhead" data-reveal><svg class="icon" width="18" height="18"><use href="#i-bug"/></svg>Hall of fame</h3>
+      <ul class="certs">
+        <li class="cert" data-reveal>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-bug"/></svg></span>
+          <div>
+            <p class="cert__name">Inflectra Hall of Fame</p>
+            <p class="cert__meta">Inflectra · Oct 2020</p>
+            <p class="cert__desc">Reported a cross-site scripting vulnerability.</p>
+          </div>
+          <span class="tag tag--crit">xss</span>
+        </li>
+        <li class="cert" data-reveal>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-bug"/></svg></span>
+          <div>
+            <p class="cert__name">Tidepool Hall of Fame</p>
+            <p class="cert__meta">tidepool.org · Aug 2020</p>
+            <p class="cert__desc">Thanked by Tidepool's security team for finding a CSRF vulnerability.</p>
+          </div>
+          <span class="tag tag--warn">csrf</span>
+        </li>
+        <li class="cert" data-reveal>
+          <span class="cert__badge"><svg class="icon" width="18" height="18"><use href="#i-bug"/></svg></span>
+          <div>
+            <p class="cert__name"><a href="https://bugcrowd.com/engagements/soundcloud/hall_of_fames" target="_blank" rel="noopener">SoundCloud Hall of Fame <svg class="icon" width="18" height="18"><use href="#i-arrow"/></svg></a></p>
+            <p class="cert__meta">SoundCloud via Bugcrowd · Feb 2020</p>
+            <p class="cert__desc">Acknowledged for reporting clickjacking vulnerabilities.</p>
+          </div>
+          <span class="tag tag--warn">clickjacking</span>
+        </li>
+      </ul>
 
       <h3 class="subhead" data-reveal><svg class="icon" width="18" height="18"><use href="#i-award"/></svg>Certifications</h3>
       <!-- Matches the credentials listed on LinkedIn. Tags: tag--ok certified,
@@ -732,18 +738,17 @@
         <div class="contact__grid" aria-hidden="true"></div>
         <p class="eyebrow"><span>06</span> // secure channel</p>
         <h2 class="contact__title">Let's make your pipeline <span class="grad">boring</span>.</h2>
-        <p class="contact__lede">Happy to talk DevSecOps, security operations, automation, or whatever you're building. Email is the fastest way to reach me.</p>
+        <p class="contact__lede">Happy to talk DevSecOps, security operations, automation, or whatever you're building. LinkedIn is the best way to reach me.</p>
 
         <div class="contact__actions">
-          <a class="btn btn--primary btn--lg" href="mailto:redacted@example.invalid" data-magnetic>
-            <svg class="icon" width="18" height="18"><use href="#i-mail"/></svg>
-            redacted@example.invalid
+          <a class="btn btn--primary btn--lg" href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener" data-magnetic>
+            <svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg>
+            Message me on LinkedIn
           </a>
         </div>
 
         <ul class="contact__links">
           <li><a href="https://github.com/SarveshP16" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-github"/></svg>SarveshP16</a></li>
-          <li><a href="https://www.linkedin.com/in/sarvesh-pandit-0340a9202/" target="_blank" rel="me noopener"><svg class="icon" width="18" height="18"><use href="#i-linkedin"/></svg>sarvesh-pandit</a></li>
         </ul>
       </div>
     </div>
