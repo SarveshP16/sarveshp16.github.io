@@ -1,0 +1,479 @@
+/* ==========================================================================
+   Sarvesh Pandit — portfolio
+   Tokens, then layout, then components. Dark is the default; light is an
+   override on [data-theme="light"].
+   ========================================================================== */
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --bg: #0b0b0f;
+  --bg-elev: #15151d;
+  --text: #e8e6e3;
+  --text-dim: #a0a0ab;
+  --text-faint: #6f6f7b;
+  --accent: #a594f9;
+  --accent-soft: rgba(165, 148, 249, 0.12);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --glow: rgba(165, 148, 249, 0.10);
+
+  --radius: 10px;
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg: #faf9f7;
+  --bg-elev: #ffffff;
+  --text: #19191f;
+  --text-dim: #55555f;
+  --text-faint: #8a8a95;
+  --accent: #5b4bc4;
+  --accent-soft: rgba(91, 75, 196, 0.10);
+  --border: rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.20);
+  --glow: rgba(91, 75, 196, 0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-dim);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { color: var(--text); font-weight: 600; line-height: 1.25; margin: 0; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+strong { color: var(--text); font-weight: 500; }
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+a:hover { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* --------------------------------------------------------------- utilities */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.skip-link:focus { top: 1rem; color: var(--bg); }
+
+/* Cursor-tracked wash. Coordinates come from main.js. */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 0%),
+    var(--glow),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.spotlight.is-lit { opacity: 1; }
+
+.draft-flag {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  background: var(--bg-elev);
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Keep the bar from covering the last line of the page. */
+body:has(.draft-flag) { padding-bottom: 2rem; }
+
+/* ------------------------------------------------------------------ layout */
+
+.layout {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.intro { padding: 4rem 0 2rem; }
+.content { padding-bottom: 4rem; }
+
+@media (min-width: 64rem) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 0 4rem;
+  }
+  .intro {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100vh;
+    padding: 6rem 0;
+  }
+  .content { padding: 6rem 0; }
+}
+
+/* ------------------------------------------------------------------- intro */
+
+.intro__name {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.025em;
+}
+.intro__name a { color: inherit; }
+
+.intro__role {
+  margin: 0.5rem 0 0;
+  color: var(--text);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.intro__pitch {
+  margin: 1rem 0 0;
+  max-width: 24rem;
+}
+
+/* ---------------------------------------------------------------------- nav */
+
+.nav { display: none; margin-top: 3.5rem; }
+
+@media (min-width: 64rem) {
+  .nav { display: block; }
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  color: var(--text-faint);
+}
+
+.nav__rule {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.nav__text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible { color: var(--text); }
+.nav__link:hover .nav__rule { width: 4rem; }
+
+.nav__link.is-active { color: var(--text); }
+.nav__link.is-active .nav__rule { width: 4rem; background: var(--accent); }
+
+/* ----------------------------------------------------------- intro footer */
+
+.intro__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.socials { display: flex; gap: 1.25rem; }
+.socials a { display: block; color: var(--text-dim); }
+.socials svg { width: 22px; height: 22px; fill: currentColor; }
+.socials a:hover { color: var(--accent); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.theme-toggle:hover { border-color: var(--border-strong); color: var(--text); }
+.theme-toggle svg { width: 15px; height: 15px; fill: currentColor; display: block; }
+/* The icon shows the mode you'd switch to, matching the label. */
+.theme-toggle__moon { display: none; }
+[data-theme="light"] .theme-toggle__moon { display: block; }
+[data-theme="light"] .theme-toggle__sun { display: none; }
+
+/* --------------------------------------------------------------- sections */
+
+.section {
+  margin-bottom: 4.5rem;
+  scroll-margin-top: 4rem;
+}
+
+.section__label {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 0 1.75rem;
+  padding: 1rem 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 64rem) {
+  .section__label {
+    position: static;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+}
+
+.prose { max-width: 38rem; }
+.prose p:last-child { margin-bottom: 0; }
+
+.section__more {
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.section__more a { color: var(--text); }
+.section__more a span { display: inline-block; transition: transform 0.2s var(--ease); }
+.section__more a:hover span { transform: translateX(4px); }
+
+/* ------------------------------------------------------------------- cards */
+
+/* The negative inline margin lets the hover background bleed past the text,
+   so every section's content still lines up on one left edge. */
+.cards {
+  display: grid;
+  gap: 0.5rem;
+  margin-inline: -1.25rem;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  gap: 0.25rem 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+@media (min-width: 48rem) {
+  .card { grid-template-columns: 7.5rem minmax(0, 1fr); }
+  .card--project { grid-template-columns: 8.5rem minmax(0, 1fr); }
+}
+
+.card:hover,
+.card:focus-within {
+  background: var(--bg-elev);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.card__meta {
+  margin: 0;
+  padding-top: 0.2rem;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.card__title {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Stretch the title link over the whole card so the entire block is clickable. */
+.card__title a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.card:hover .card__title a,
+.card:focus-within .card__title a { color: var(--accent); }
+
+.card__arrow {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -1px;
+  transition: transform 0.2s var(--ease);
+}
+.card:hover .card__arrow { transform: translate(3px, -3px); }
+
+.card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.card__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 0.75rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+
+@media (min-width: 48rem) {
+  .card__thumb { margin-bottom: 0; }
+}
+
+/* -------------------------------------------------------------------- tags */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.tags li {
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------ skills */
+
+.skills {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 48rem) {
+  .skills { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+}
+
+.skills__group h3 {
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+.skills__group .tags { margin-top: 0.6rem; }
+
+/* ----------------------------------------------------------------- contact */
+
+.section--contact { margin-bottom: 3rem; }
+
+.contact__lead { max-width: 32rem; }
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.button:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------------ footer */
+
+.footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.875rem;
+}
+.footer p { margin: 0; }
+.footer a { color: var(--text-dim); }
+
+/* ------------------------------------------------------------- reveal (JS) */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .spotlight { display: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+@media (pointer: coarse) {
+  .spotlight { display: none; }
+}
